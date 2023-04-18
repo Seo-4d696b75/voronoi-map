@@ -1,4 +1,4 @@
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, Marker, Polygon, Polyline, useJsApiLoader } from "@react-google-maps/api";
 import { Station, StationData } from "model/station";
 import { FC, useCallback, useEffect, useState } from "react";
 import "./Map.css";
@@ -28,12 +28,35 @@ const Map: FC = () => {
   }, [])
 
   const render = () => {
-    const stationMarkers = stations.map(s => (
+    const stationMarkers = stations.map((s,i) => (
       <Marker
-        key={s.code}
+        key={i}
         position={s}
         icon={"https://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
     ))
+    const voronoiPolygons = stations.map((s,i) => {
+      const geo = s.voronoi.geometry
+      const points = geo.type === "Polygon" ? geo.coordinates[0] : geo.coordinates
+      const paths = points.map(p => ({
+        lat: p[1],
+        lng: p[0],
+      }))
+      return geo.type === "Polygon" ? (
+        <Polygon
+          key={i}
+          paths={paths}
+          options={{
+            strokeColor: "#0000FF",
+            strokeWeight: 1,
+            strokeOpacity: 0.8,
+            fillOpacity: 0,
+          }} />
+      ) : (
+        <Polyline
+          key={i}
+          path={paths} />
+      )
+    })
     return (
       <div className="map-container">
         <GoogleMap
@@ -53,6 +76,7 @@ const Map: FC = () => {
           }}
         >
           {stationMarkers}
+          {voronoiPolygons}
         </GoogleMap>
       </div>
     )

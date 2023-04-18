@@ -1,5 +1,6 @@
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { FC, useCallback, useState } from "react";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { Station, StationData } from "model/station";
+import { FC, useCallback, useEffect, useState } from "react";
 import "./Map.css";
 
 const Map: FC = () => {
@@ -16,7 +17,23 @@ const Map: FC = () => {
     setMap(null)
   }, [])
 
+  const [stations, setStations] = useState<Station[]>([])
+
+  useEffect(() => {
+    Promise.resolve().then(async () => {
+      const data = (await import("../../json/euclid.json")).default as StationData
+      console.log("data loaded", data)
+      setStations(data.node_list)
+    })
+  }, [])
+
   const render = () => {
+    const stationMarkers = stations.map(s => (
+      <Marker
+        key={s.code}
+        position={s}
+        icon={"https://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
+    ))
     return (
       <div className="map-container">
         <GoogleMap
@@ -35,7 +52,7 @@ const Map: FC = () => {
             streetViewControl: false,
           }}
         >
-
+          {stationMarkers}
         </GoogleMap>
       </div>
     )

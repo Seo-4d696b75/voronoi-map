@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.header-root{
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	height: 40px;
+	z-index: 20;
+	background-color: gray;
+	color: white;
+}
+
+.header-title {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: start;
+    height: 40px;
+    padding-left: 12px;
+    font-size: 1.5rem;
+}

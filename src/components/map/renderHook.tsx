@@ -11,7 +11,7 @@ export function renderStation(data: Station[]): JSX.Element[] {
   ))
 }
 
-export function renderVoronoi(euclid: Station[], strokeColor: string): JSX.Element[] {
+export function renderVoronoi(euclid: Station[], strokeColor: string, geodesic: boolean = false): JSX.Element[] {
   return [
     ...euclid,
   ].map((s, i) => {
@@ -30,11 +30,18 @@ export function renderVoronoi(euclid: Station[], strokeColor: string): JSX.Eleme
           strokeWeight: 1,
           strokeOpacity: 0.8,
           fillOpacity: 0,
+          geodesic: geodesic,
         }} />
     ) : (
       <Polyline
         key={`${strokeColor}-${i}`}
-        path={paths} />
+        path={paths}
+        options={{
+          strokeColor: strokeColor,
+          strokeWeight: 1,
+          strokeOpacity: 0.8,
+          geodesic: geodesic,
+        }} />
     )
   })
 }

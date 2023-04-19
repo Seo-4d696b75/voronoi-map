@@ -21,3 +21,106 @@
     padding-left: 12px;
     font-size: 1.5rem;
 }
+
+.icon {
+	cursor: pointer;
+}
+
+.icon:hover {
+	filter: drop-shadow(0px 0px 2px gray);
+}
+
+.icon.help {
+	position: absolute;
+	top: 5px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+}
+
+.modal-container {
+	z-index: 10;
+    padding: 15px;
+	background-color: rgba(255,255,255,0.95);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 2px 2px 4px grey;
+	pointer-events: all;
+	transform: translateY(-120%);
+}
+
+.modal-container.enter{
+    transform: translateY(-120%);
+}
+
+.modal-container.enter-active{
+	transition: all 300ms ease-out;
+	transition-delay: 10ms;
+    transform: translateY(0);
+}
+
+.modal-container.enter-done{
+    transform: translateY(0);
+}
+
+.modal-container.exit{
+    transform: translateY(0);
+}
+
+.modal-container.exit-active{
+	transition: all 300ms ease-in;
+	transition-delay: 10ms;
+    transform: translateY(-120%);
+}
+
+.modal-container.help {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 300px;
+	height: fit-content;
+}
+
+.modal-title-container {
+	display: flex;
+	padding-bottom: 20px;
+}
+
+.modal-title {
+	color: black;
+	font-size: large;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+}
+
+.icon.title {
+	width: 40px;
+	height: 40px;
+	filter: invert();
+}
+
+.modal-text {
+	color: #444;
+}
+
+.modal-text.description {
+	margin-bottom: 10px;
+}
+
+.modal-text.euclid {
+	border: 2px solid red;
+	margin-bottom: 10px;
+}
+
+.modal-text.sphere {
+	border: 2px solid blue;
+	margin-bottom: 15px;
+}
+
+.icon.close {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	right: 5px;
+}

@@ -5,6 +5,7 @@ declare global {
     interface ProcessEnv {
       REACT_APP_API_KEY: string
       REACT_APP_DATA_VERSION: string
+      REACT_APP_DATA_REPO: string
       NODE_ENV: 'development' | 'production'
     }
   }

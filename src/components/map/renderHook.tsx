@@ -11,7 +11,7 @@ export function renderStation(data: Station[]): JSX.Element[] {
   ))
 }
 
-export function renderVoronoi(euclid: Station[]): JSX.Element[] {
+export function renderVoronoi(euclid: Station[], strokeColor: string): JSX.Element[] {
   return [
     ...euclid,
   ].map((s, i) => {
@@ -23,17 +23,17 @@ export function renderVoronoi(euclid: Station[]): JSX.Element[] {
     }))
     return geo.type === "Polygon" ? (
       <Polygon
-        key={i}
+        key={`${strokeColor}-${i}`}
         paths={paths}
         options={{
-          strokeColor: "#FF0000",
+          strokeColor: strokeColor,
           strokeWeight: 1,
           strokeOpacity: 0.8,
           fillOpacity: 0,
         }} />
     ) : (
       <Polyline
-        key={i}
+        key={`${strokeColor}-${i}`}
         path={paths} />
     )
   })

@@ -45,8 +45,9 @@ const Map: FC = () => {
         streetViewControl: false,
       }}
     >
+      {renderVoronoi(data.sphere, "#0000FF")}
+      {renderVoronoi(data.euclid, "#FF0000")}
       {renderStation(data.euclid)}
-      {renderVoronoi(data.euclid)}
     </GoogleMap>
   </div>
 }

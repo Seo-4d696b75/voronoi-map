@@ -25,7 +25,7 @@ const Header: FC = () => {
           src={ic_delete}
           onClick={() => setShowModal(false)}></img>
         <div className="modal-title-container">
-          <img className="icon title" src={ic_help}></img>
+          <img className="icon title" src={ic_help} alt=""></img>
           <div className="modal-title">地図の説明</div>
         </div>
         <div className="modal-text description">各駅に最も近い範囲を地図上に描画しています</div>

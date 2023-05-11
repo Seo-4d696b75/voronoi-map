@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Voronoi Map
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+位置情報ゲーム「駅メモ」のツールサイトの開発リポジトリ
 
-## Available Scripts
+<img src="./public/ogp.png">
 
-In the project directory, you can run:
+## 開発
 
-### `npm start`
+### セットアップ
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Maps JavaScript API keyをGoogle Cloud Consoleから取得する
+2. API keyは.gitignoreに指定されている`.env.development.local`に追加する
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```txt
+REACT_APP_API_KEY=${API_KEY}
+```
 
-### `npm test`
+### 開発用サーバの立ち上げ
+```bash
+npm run start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Build
 
-### `npm run build`
+Githubのmainブランチにpushするとgh-pageワークフローが自動でビルド＆デプロイします. 手動起動も可能です.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 技術スタック
+<img src="https://user-images.githubusercontent.com/25225028/96458500-f5cb5700-125b-11eb-901c-1aaf0653f999.jpg" height="100"/><img src="https://user-images.githubusercontent.com/25225028/108220336-f9270e80-7179-11eb-9091-c234b1e045be.png" height="100"/><img src="https://user-images.githubusercontent.com/25225028/96458574-0bd91780-125c-11eb-8307-05d60bf3f5f0.png" height="100"/><img src="https://user-images.githubusercontent.com/25225028/96458641-1b586080-125c-11eb-80dd-65ce67712f81.png" height="100"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React + TypeScript による高速開発
+- Maps JavaScript API による地図表示機能
+- Github Page でホスティング
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 使用データ
+このwebアプリで使用しているデータは[このリポジトリ](https://github.com/Seo-4d696b75/station_database)で管理されています。

@@ -10,6 +10,7 @@ const Map: FC = () => {
     googleMapsApiKey: process.env.REACT_APP_API_KEY,
   })
 
+  // eslint-disable-next-line
   const [map, setMap] = useState<google.maps.Map | null>(null)
   const onLoaded = useCallback((map: google.maps.Map) => {
     setMap(map)

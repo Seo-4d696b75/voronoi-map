@@ -22,7 +22,7 @@ module.exports = {
   },
   output: {
     // This is required so workers are known where to be loaded from
-    publicPath: "/voronoi-map/",
+    publicPath: "/",
     filename: "bundle.js",
     path: `${__dirname}/docs`,
   },
